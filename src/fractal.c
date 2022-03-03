@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 18:00:13 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/03 10:21:05 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/03 21:53:11 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	calc_mandelbrot(t_vars *var)
 		x = x_tmp;
 		iter++;
 	}
+	var->fract.z = x*x + y*y;
 	return (iter);
 }
 
@@ -45,7 +46,7 @@ void	draw_fractal(t_vars *var)
 {
 	int	ix;
 	int	iy;
-	int	magnitude;
+	int	iter_count;
 
 	iy = 0;
 	while (iy < WIN_H)
@@ -56,8 +57,8 @@ void	draw_fractal(t_vars *var)
 		while (ix < WIN_W)
 		{
 			var->fract.real.val = interpolate(var->fract.real.min, var->fract.real.max, (double)ix/WIN_W);	
-			magnitude = calc_mandelbrot(var);
-			color_pixel(var, magnitude, ix, iy);
+			iter_count = calc_mandelbrot(var);
+			color_pixel(var, iter_count, ix, iy);
 			ix++;
 		}
 		iy++;
