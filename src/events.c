@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/03 10:34:04 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/03 11:54:00 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/03 13:07:07 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	zoom(int keycode, int x, int y, t_vars *var)
 void	close_window(int keycode, t_vars *var)
 {
 	(void) keycode;
-	mlx_destroy_window(var->mlx, var->win.mlx);
+	(void) var;
+	// mlx_destroy_window(var->mlx, var->win.mlx);
 	exit(0);
 }
