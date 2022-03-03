@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:03:22 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/02 17:09:33 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/03 22:44:40 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ typedef struct	s_win_data
 	char	*title;
 }				t_win_data;
 
+typedef struct	s_color
+{
+	int	r;
+	int	g;
+	int	b;
+}				t_color;
+
 typedef struct	s_complex
 {
 	double		val;
@@ -40,6 +47,7 @@ typedef struct	s_fractal
 {
 	t_complex	imag;
 	t_complex	real;
+	double		z;
 	int			max_iter;
 }				t_fractal;
 

@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:24:39 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/02 22:27:50 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/03 15:44:34 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FRACTOL_H
 # include "custom_datatypes.h"
 
-# define WIN_W 500
-# define WIN_H 500
+# define WIN_W 800
+# define WIN_H 800
 
 void	mlx_put_pixel(t_data *data, int x, int y, int color);
 void	init_vars(t_vars *var);
