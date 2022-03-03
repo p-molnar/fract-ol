@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 10:37:44 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/01 21:40:06 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/03 11:48:32 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(void)
 	init_vars(&var);
 	init_mlx(&var);
 	draw_fractal(&var);
+	mlx_hook(var.win.mlx, ON_DESTROY, 0, window_event_handler, &var);
 	mlx_hook(var.win.mlx, ON_KEYDOWN, 0, keypress_event_handler, &var);
 	mlx_hook(var.win.mlx, ON_MOUSEDOWN, 0, mouse_event_handler, &var);
 	mlx_loop_hook(var.mlx, render_next_frame, &var);

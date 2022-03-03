@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:03:22 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/01 22:42:46 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/02 17:09:33 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_win_data
 
 typedef struct	s_complex
 {
-	double	val;
+	double		val;
 	double		min;
 	double		max;
 }				t_complex;

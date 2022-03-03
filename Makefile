@@ -6,7 +6,7 @@
 #    By: pmolnar <pmolnar@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/05 16:56:56 by pmolnar       #+#    #+#                  #
-#    Updated: 2022/03/01 22:10:04 by pmolnar       ########   odam.nl          #
+#    Updated: 2022/03/03 10:58:13 by pmolnar       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC =	main.c  \
 		colors.c  \
 		fractal.c  \
 		event_handler.c \
+		events.c	\
 
 OBJ = $(addprefix obj/, $(SRC:.c=.o))
 
