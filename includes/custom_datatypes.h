@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:03:22 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/03 22:44:40 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/04 21:13:11 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct	s_color
 typedef struct	s_complex
 {
 	double		val;
+	double		init;
 	double		min;
 	double		max;
 }				t_complex;
