@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 18:00:13 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/03 21:53:11 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/04 22:19:22 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ double interpolate(double start, double end, double interpolation)
 
 int	calc_mandelbrot(t_vars *var)
 {
-	double	x;
-	double	y;
-	double	x_tmp;
+	double	a;
+	double	b;
+	double	a_tmp;
 	int		iter;
 
-	x = 0;
-	y = 0;
+	a = var->fract.real.init;
+	b = var->fract.imag.init;
 	iter = 0;
-	while (x*x + y*y <= 4 && iter < var->fract.max_iter)
+	while (a*a + b*b <= 4 && iter < var->fract.max_iter)
 	{
-		x_tmp = x*x - y*y + var->fract.real.val;
-		y = 2*x*y + var->fract.imag.val;
-		x = x_tmp;
+		a_tmp = a*a - b*b + var->fract.real.val;
+		b = 2*a*b + var->fract.imag.val;
+		a = a_tmp;
 		iter++;
 	}
-	var->fract.z = x*x + y*y;
+	var->fract.z = a*a + b*b;
 	return (iter);
 }
 

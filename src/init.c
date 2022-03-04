@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:32:27 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/03 13:24:58 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/04 22:18:41 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	init_vars(t_vars *var)
 	var->fract.real.max = 2.0;
 	var->fract.imag.max = var->fract.imag.min + (var->fract.real.max - var->fract.real.min) * (WIN_H / WIN_W);
 	var->mouse.zoom = 1.0;
+	var->fract.imag.init = 0;
+	var->fract.real.init = 0;
 }
 
 void	init_mlx(t_vars *var)
