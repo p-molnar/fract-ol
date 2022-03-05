@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 18:00:13 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/04 22:19:22 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/06 00:39:24 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,26 @@ double interpolate(double start, double end, double interpolation)
     return start + ((end - start) * interpolation);
 }
 
-int	calc_mandelbrot(t_vars *var)
+int	get_point_magnitude(t_vars *var)
 {
 	double	a;
 	double	b;
 	double	a_tmp;
 	int		iter;
 
-	a = var->fract.real.init;
-	b = var->fract.imag.init;
+	// a = var->fract.real.init;
+	// b = var->fract.imag.init;
+	// printf("a: %f\n", *var->a);
+	// printf("b: %f\n", *var->b);
+	// printf("c_real: %f\n", *var->c_real);
+	// printf("c_imag: %f\n", *var->c_imag);
+	a = *var->a;
+	b = *var->b;
 	iter = 0;
 	while (a*a + b*b <= 4 && iter < var->fract.max_iter)
 	{
-		a_tmp = a*a - b*b + var->fract.real.val;
-		b = 2*a*b + var->fract.imag.val;
+		a_tmp = a*a - b*b + *var->c_real;
+		b = 2*a*b + *var->c_imag;
 		a = a_tmp;
 		iter++;
 	}
@@ -42,7 +48,7 @@ int	calc_mandelbrot(t_vars *var)
 	return (iter);
 }
 
-void	draw_fractal(t_vars *var)
+void	plot_fractal(t_vars *var)
 {
 	int	ix;
 	int	iy;
@@ -51,13 +57,13 @@ void	draw_fractal(t_vars *var)
 	iy = 0;
 	while (iy < WIN_H)
 	{
-		var->fract.imag.val = interpolate(var->fract.imag.min, var->fract.imag.max,
+		var->mapped_y = interpolate(var->fract.imag.min, var->fract.imag.max,
 											(double)iy/WIN_H);
 		ix = 0;
 		while (ix < WIN_W)
 		{
-			var->fract.real.val = interpolate(var->fract.real.min, var->fract.real.max, (double)ix/WIN_W);	
-			iter_count = calc_mandelbrot(var);
+			var->mapped_x = interpolate(var->fract.real.min, var->fract.real.max, (double)ix/WIN_W);	
+			iter_count = get_point_magnitude(var);
 			color_pixel(var, iter_count, ix, iy);
 			ix++;
 		}

@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:03:22 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/04 21:13:11 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/06 00:02:55 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct	s_color
 typedef struct	s_complex
 {
 	double		val;
-	double		init;
+	double		*init;
 	double		min;
 	double		max;
 }				t_complex;
@@ -68,6 +68,12 @@ typedef struct	s_vars
 	t_win_data	win;
 	t_fractal	fract;
 	t_mouse		mouse;
+	double		mapped_x;
+	double		mapped_y;
+	double		*a;
+	double		*b;
+	double		*c_imag;
+	double		*c_real;
 }				t_vars;
 
 #endif

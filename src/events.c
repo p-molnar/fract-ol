@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/03 10:34:04 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/03 13:07:07 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/05 20:24:03 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	change_itermax(int keycode, t_vars *var)
 	else if (keycode == KEY_NUMPAD_MINUS && 
 			var->fract.max_iter != 0)
 		var->fract.max_iter -= 5;
-	draw_fractal(var);
+	plot_fractal(var);
 }
 
 void	zoom(int keycode, int x, int y, t_vars *var)
@@ -50,9 +50,9 @@ void	zoom(int keycode, int x, int y, t_vars *var)
 	if (keycode != MOUSE_SCROLL_UP && keycode != MOUSE_SCROLL_DOWN)
 		return ;
 	if (keycode == MOUSE_SCROLL_UP)
-		var->mouse.zoom = 1.10;
+		var->mouse.zoom = 1.15;
 	else if (keycode == MOUSE_SCROLL_DOWN)
-		var->mouse.zoom = 0.9;
+		var->mouse.zoom = 0.85;
 
 	var->mouse.real = (double)x / (WIN_W / (var->fract.real.max - var->fract.real.min)) + var->fract.real.min;
 	var->mouse.imag = (double)y / (WIN_H / (var->fract.imag.max - var->fract.imag.min)) + var->fract.imag.min;
@@ -61,13 +61,12 @@ void	zoom(int keycode, int x, int y, t_vars *var)
 	var->fract.imag.min = interpolate(var->mouse.imag, var->fract.imag.min, interpolation);
 	var->fract.real.max = interpolate(var->mouse.real, var->fract.real.max, interpolation);
 	var->fract.imag.max = interpolate(var->mouse.imag, var->fract.imag.max, interpolation);
-	draw_fractal(var);
+	plot_fractal(var);
 }
 
 void	close_window(int keycode, t_vars *var)
 {
 	(void) keycode;
 	(void) var;
-	// mlx_destroy_window(var->mlx, var->win.mlx);
 	exit(0);
 }
