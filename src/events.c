@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/03 10:34:04 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/05 20:24:03 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/07 10:56:37 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	zoom(int keycode, int x, int y, t_vars *var)
 
 void	close_window(int keycode, t_vars *var)
 {
-	(void) keycode;
-	(void) var;
-	exit(0);
+	(void)	var;
+	if (keycode == KEY_ESC)
+		exit(0);
 }

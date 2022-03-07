@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 10:37:44 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/06 00:12:08 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/07 17:03:05 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,18 @@
 #include "../includes/key_consts.h"
 #include "../includes/events.h"
 
-int	main(void)
+#include <stdio.h>
+
+int	main(int argc, char *argv[])
 {	
 	t_vars	var;
-
+	bool	valid_input;
+	valid_input = parse_cla(argc, argv, &var);
+	if (!valid_input)
+		return (EXIT_FAILURE);
+	printf("valid\n");
 	init_generic_vars(&var);
+	init_fractal_vars(&var);
 	init_mlx(&var);
 	plot_fractal(&var);
 	mlx_hook(var.win.mlx, ON_DESTROY, 0, window_event_handler, &var);

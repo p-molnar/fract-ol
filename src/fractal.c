@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 18:00:13 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/06 00:39:24 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/07 09:34:35 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,13 @@ int	get_point_magnitude(t_vars *var)
 	double	a_tmp;
 	int		iter;
 
-	// a = var->fract.real.init;
-	// b = var->fract.imag.init;
-	// printf("a: %f\n", *var->a);
-	// printf("b: %f\n", *var->b);
-	// printf("c_real: %f\n", *var->c_real);
-	// printf("c_imag: %f\n", *var->c_imag);
-	a = *var->a;
-	b = *var->b;
+	a = *var->fract.real.init;
+	b = *var->fract.imag.init;
 	iter = 0;
 	while (a*a + b*b <= 4 && iter < var->fract.max_iter)
 	{
-		a_tmp = a*a - b*b + *var->c_real;
-		b = 2*a*b + *var->c_imag;
+		a_tmp = a*a - b*b + *var->fract.real.c;
+		b = 2*a*b + *var->fract.imag.c;
 		a = a_tmp;
 		iter++;
 	}

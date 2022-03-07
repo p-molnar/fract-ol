@@ -6,31 +6,34 @@
 #    By: pmolnar <pmolnar@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/05 16:56:56 by pmolnar       #+#    #+#                  #
-#    Updated: 2022/03/03 10:58:13 by pmolnar       ########   odam.nl          #
+#    Updated: 2022/03/07 15:24:17 by pmolnar       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 LIB_MLX = mlx
+LIBFT_NAME = libft.a
+LIBFT_PATH = includes/libft/
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit 
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
-NAME = fractol
-SRC =	main.c  \
-		rendering.c  \
-		init.c  \
-		colors.c  \
-		fractal.c  \
+NAME = fractol 
+ SRC =	main.c			\
+		rendering.c		\
+		init.c			\
+		colors.c  		\
+		fractal.c		\
 		event_handler.c \
-		events.c	\
+		events.c		\
+		input.c			\
 
 OBJ = $(addprefix obj/, $(SRC:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(LIB_MLX) $(OBJ)
-	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(LIB_MLX) $(LIBFT_NAME) $(OBJ)
+	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIBFT_PATH)$(LIBFT_NAME) -o $(NAME)
 
 obj/%.o: src/%.c
 	@mkdir -p obj
@@ -54,4 +57,7 @@ norm:
 $(LIB_MLX):
 	make libmlx.a -C $(LIB_MLX)
 
-.PHONY: $(LIB_MLX) $(NAME) all clean fclean re
+$(LIBFT_NAME):
+	make libft.a -C $(LIBFT_PATH) 
+
+.PHONY: $(LIB_MLX) $(LIBFT_NAME) $(NAME) all clean fclean re
