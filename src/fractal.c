@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 18:00:13 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/07 09:34:35 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/08 12:04:10 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void	plot_fractal(t_vars *var)
 	iy = 0;
 	while (iy < WIN_H)
 	{
-		var->mapped_y = interpolate(var->fract.imag.min, var->fract.imag.max,
+		var->fract.mapped_y = interpolate(var->fract.imag.min, var->fract.imag.max,
 											(double)iy/WIN_H);
 		ix = 0;
 		while (ix < WIN_W)
 		{
-			var->mapped_x = interpolate(var->fract.real.min, var->fract.real.max, (double)ix/WIN_W);	
+			var->fract.mapped_x = interpolate(var->fract.real.min, var->fract.real.max, (double)ix/WIN_W);	
 			iter_count = get_point_magnitude(var);
 			color_pixel(var, iter_count, ix, iy);
 			ix++;

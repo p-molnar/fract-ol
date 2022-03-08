@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 10:37:44 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/07 17:03:05 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/08 18:18:27 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int	main(int argc, char *argv[])
 {	
 	t_vars	var;
 	bool	valid_input;
+
 	valid_input = parse_cla(argc, argv, &var);
 	if (!valid_input)
-		return (EXIT_FAILURE);
+		return (display_input_error());
 	printf("valid\n");
 	init_generic_vars(&var);
 	init_fractal_vars(&var);

@@ -6,33 +6,30 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/07 09:41:03 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/07 17:07:46 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/08 18:18:03 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 #include "../includes/libft/libft.h"
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
 #include <stdio.h>
 
-bool	parse_polynomial(const char *formula, t_vars *var)
+bool	parse_polynomial(t_vars *var, const char *polynom)
 {
-	(void) var;
-	double		a;
-	double		b;
-	int			sign;
-	char		*sign_ptr;
+	char *sign_ptr;
+	int	sign;
 
-	sign = 1;
-	sign_ptr = ft_strrchr(formula, ' ') - 1;
+	sign_ptr = ft_strrchr(polynom, ' ') - 1;
 	if (*sign_ptr == '-')
 		sign = -1;
-	a = atof(formula);
-	b = sign * atof(ft_strrchr(formula, ' '));
-	printf("a: %f\n", a);
-	printf("b: %f\n", b);
+	else if (*sign_ptr == '+')
+		sign = 1;
+	else
+		return (false);
+	if (polynom[ft_strlen(polynom) - 1] != 'i')
+		return (false);
+	var->fract.input_a = ft_atof(polynom);
+	var->fract.input_b = sign * ft_atof(sign_ptr + 1);
 	return (true);
 }
 
@@ -41,40 +38,41 @@ bool	is_valid_arg_count(int argc)
 	return (argc == 2);
 }
 
-bool parse_arg(char *argv[], t_vars *var)
+bool parse_preset_fractal(t_vars *var, const char *arg)
 {
 	int	i;
-	const char *arg = argv[1];
-	const char	*fractal_types[NUM_OF_FRACT_TYPE] = {
+	const char	*fractal_types[DEFAULT_FRACT_COUNT] = {
 		"Mandelbrot",
 		"Julia 1",
 		"Julia 2",
 		"Julia 3",
-		"Julia 4"
 	};
 
 	i = 0;
-	while (i < NUM_OF_FRACT_TYPE)
+	while (i < DEFAULT_FRACT_COUNT )
 	{
 		if (ft_strncmp(fractal_types[i], arg, 
 			ft_strlen(fractal_types[i])) == 0)
 		{
-			var->fract.type = argv;
+			var->fract.type = arg;
+			return (true);
 		}
 		i++;
 	}
-	if (!parse_polynomial(arg, var))
-		return (false);
-	return (true);
+	return (false);
 }
 
 bool parse_cla(int argc, char *argv[], t_vars *var)
 {
-	(void) var;
+	const char	*arg;
+
+	arg = argv[1];
 	if (!is_valid_arg_count(argc))
 		return (false);
-	else if (!parse_arg(argv, var))
-		return (false);
-	else
-		return (true);
+	if(!parse_preset_fractal(var, arg))
+	{
+		if (!parse_polynomial(var, arg))
+			return(false);
+	}
+	return (true);
 }

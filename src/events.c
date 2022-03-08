@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/03 10:34:04 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/07 10:56:37 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/08 12:40:02 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	print_info(int keycode, t_vars *var)
 		return ;
 	printf("--- info ---\n");
 	printf("zoom: %f\n", var->mouse.zoom);
-	// printf("mouse_x: %d\n", x);
-	// printf("mouse_y: %d\n", y);
 	printf("mouse_real: %f\n", var->mouse.real);
 	printf("mouse_imag: %f\n", var->mouse.imag);
 	printf("real.min: %f\n", var->fract.real.min);

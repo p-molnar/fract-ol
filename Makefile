@@ -6,7 +6,7 @@
 #    By: pmolnar <pmolnar@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/05 16:56:56 by pmolnar       #+#    #+#                  #
-#    Updated: 2022/03/07 15:24:17 by pmolnar       ########   odam.nl          #
+#    Updated: 2022/03/08 15:17:34 by pmolnar       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ NAME = fractol
 		event_handler.c \
 		events.c		\
 		input.c			\
+		fractals.c		\
+		error.c			\
 
 OBJ = $(addprefix obj/, $(SRC:.c=.o))
 
