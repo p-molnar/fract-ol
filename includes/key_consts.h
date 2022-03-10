@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 21:01:21 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/03 10:30:29 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 16:13:29 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ enum {
 # define KEY_I 34
 # define KEY_G 5
 
-# define KEY_LEFT_ARROW 123
-# define KEY_RIGHT_ARROW 124
-# define KEY_DOWN_ARROW 125
-# define KEY_UP_ARROW 126
+# define ARROW_KEY_LEFT 123
+# define ARROW_KEY_RIGHT 124
+# define ARROW_KEY_DOWN 125
+# define ARROW_KEY_UP 126
 
 # define KEY_RETURN 36
 # define KEY_NUMPAD_PLUS 69

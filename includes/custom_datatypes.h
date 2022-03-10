@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:03:22 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 15:22:08 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 16:05:13 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ typedef struct s_fractal
 	int			max_iter;
 	double		mapped_x;
 	double		mapped_y;
+	int			x_offset;
+	int			y_offset;
 	const char	*name;
 	const char	*type;
 	double		input_a;

@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 21:22:02 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/07 10:57:13 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 16:14:40 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,21 @@
 
 int	window_event_handler(int keycode, t_vars *var)
 {
-	(void)	keycode;
+	(void) keycode;
 	close_window(KEY_ESC, var);
 	return (EXIT_SUCCESS);
 }
 
-int keypress_event_handler(int keycode, t_vars *var)
+int	keypress_event_handler(int keycode, t_vars *var)
 {
 	print_info(keycode, var);
 	change_itermax(keycode, var);
 	close_window(keycode, var);
+	key_navigation(keycode, var);
 	return (EXIT_SUCCESS);
 }
 
-int mouse_event_handler(int button, int x, int y, t_vars *var)
+int	mouse_event_handler(int button, int x, int y, t_vars *var)
 {
 	zoom(button, x, y, var);
 	return (EXIT_SUCCESS);
