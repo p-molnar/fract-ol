@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/03 10:34:04 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 21:32:26 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:50:10 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	zoom(int keycode, int x, int y, t_vars *var)
 		var->mouse.zoom = 1.15;
 	else if (keycode == MOUSE_SCROLL_DOWN)
 		var->mouse.zoom = 0.85;
-
 	interpolation = 1.0 / var->mouse.zoom;
 	var->mouse.real = (double)(x + var->fract.x_offset) / (WIN_W / \
 		(var->fract.real.max - var->fract.real.min)) + var->fract.real.min;
@@ -67,7 +66,6 @@ void	close_window(int keycode, t_vars *var)
 	if (keycode == KEY_ESC)
 		exit(0);
 }
-
 
 void	key_navigation(int keycode, t_vars *var)
 {

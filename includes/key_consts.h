@@ -6,14 +6,15 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 21:01:21 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 17:03:16 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:21:38 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEY_CONSTS_H
 # define KEY_CONSTS_H
 
-enum {
+enum
+{
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -23,28 +24,29 @@ enum {
 	ON_DESTROY = 17,
 };
 
-enum {
+enum
+{
 	MOUSE_KEY_LEFT = 1,
 	MOUSE_KEY_RIGHT = 2,
 	MOUSE_SCROLL_UP = 4,
-	MOUSE_SCROLL_DOWN = 5, 
+	MOUSE_SCROLL_DOWN = 5,
 };
 
-# define KEY_ESC 53
-# define KEY_Q 12
-# define KEY_C 8
-# define KEY_G 5
+enum
+{
+	ARROW_KEY_LEFT = 123,
+	ARROW_KEY_RIGHT = 124,
+	ARROW_KEY_DOWN = 125,
+	ARROW_KEY_UP = 126,
+};
 
-# define ARROW_KEY_LEFT 123
-# define ARROW_KEY_RIGHT 124
-# define ARROW_KEY_DOWN 125
-# define ARROW_KEY_UP 126
-
-# define KEY_RETURN 36
-# define KEY_NUMPAD_PLUS 69
-# define KEY_NUMPAD_MINUS 78
-
-# define KEY_BRACKET_OPEN 33
-# define KEY_BRACKET_CLOSE 30
+enum
+{
+	KEY_ESC = 53,
+	KEY_C = 8,
+	KEY_G = 5,
+	KEY_NUMPAD_PLUS = 69,
+	KEY_NUMPAD_MINUS = 78,
+};
 
 #endif

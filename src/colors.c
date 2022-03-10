@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 18:36:10 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 17:00:21 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:44:08 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ int	rgb(int r, int g, int b)
 
 void	color_pixel(t_vars *var, int iter, int x, int y)
 {
-	double	t;
-	int		color;
-	int		i;
+	double		t;
+	int			color;
+	int			i;
 	const int	c[5][6] = {
-		{104, 2, 15, 3, 13, 3}, 
-		{96, 2, 16, 2, 99, 4},
-		{46, 3, 17, 2, 22, 4}, 
-		{25, 4, 20, 2, 34, 2}, 
-		{26, 3, 4, 2, 15, 22}, 
+	{104, 2, 15, 3, 13, 3},
+	{96, 2, 16, 2, 99, 4},
+	{46, 3, 17, 2, 22, 4},
+	{25, 4, 20, 2, 34, 2},
+	{26, 3, 4, 2, 15, 22}
 	};
 
 	t = (double) iter / var->fract.max_iter;

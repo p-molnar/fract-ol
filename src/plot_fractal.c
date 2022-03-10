@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fractal.c                                          :+:    :+:            */
+/*   plot_fractal.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 18:00:13 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 22:14:18 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:39:50 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 #include "../includes/libft/libft.h"
 #include "../includes/colors.h"
-
 #include <math.h>
-
 
 double	interpolate(double start, double end, double interpolation)
 {	

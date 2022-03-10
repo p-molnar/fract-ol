@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/10 14:08:44 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 22:05:47 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:33:52 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_generic_vars(t_vars *var)
 void	init_fractal_vars(t_vars *var)
 {
 	if (!invoke_fractal_initialiser(var))
-		set_polynomial_vars(var);	
+		set_polynomial_vars(var);
 }
 
 void	init_mlx(t_vars *var)

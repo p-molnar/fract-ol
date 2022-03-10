@@ -6,7 +6,7 @@
 #    By: pmolnar <pmolnar@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/05 16:56:56 by pmolnar       #+#    #+#                  #
-#    Updated: 2022/03/10 13:37:50 by pmolnar       ########   odam.nl          #
+#    Updated: 2022/03/10 22:50:44 by pmolnar       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,17 +19,17 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 NAME = fractol 
- SRC =	main.c			\
-		rendering.c		\
-		init.c			\
-		colors.c  		\
-		fractal.c		\
-		event_handler.c \
-		events.c		\
-		parse.c			\
-		fractals.c		\
-		error.c			\
-		validator.c		\
+ SRC =	main.c				\
+		renderer.c			\
+		init.c				\
+		colors.c  			\
+		plot_fractal.c		\
+		event_handler.c 	\
+		events.c			\
+		input_parser.c		\
+		preset_fractals.c	\
+		error.c				\
+		input_validator.c	\
 
 OBJ = $(addprefix obj/, $(SRC:.c=.o))
 
@@ -55,7 +55,7 @@ run: all
 	./$(NAME)
 
 norm:
-	norminette $(SRC)
+	norminette $(addprefix src/, $(SRC))
 
 $(LIB_MLX):
 	make libmlx.a -C $(LIB_MLX)

@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:03:22 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 16:58:43 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:49:47 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,11 @@ typedef struct s_vars
 	t_fractal	fract;
 	t_mouse		mouse;
 }				t_vars;
+
+struct s_func
+{
+	const char	*name;
+	void		(*function)(t_vars *);
+};
 
 #endif

@@ -6,16 +6,13 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 15:13:52 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 22:04:31 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:32:59 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/errors.h"
 #include <stdlib.h>
 #include <stdio.h>
-
-#define KRES  "\x1B[0m"
-#define KRED  "\x1B[31m"
 
 int	display_input_error(void)
 {
@@ -29,6 +26,7 @@ int	display_input_error(void)
 	printf("[B]	Burning Ship\n\n");
 	printf("usage: ./fractal <comoplex-polynomial-expression>\n");
 	printf("Expected polynomial formulation:\n");
-	printf("a + bi, whereby `a` representing the real, and `b` the imaginary term\n");
+	printf("a + bi, whereby `a` representing the real, ");
+	printf("and `b` the imaginary component\n");
 	return (EXIT_FAILURE);
 }

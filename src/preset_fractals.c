@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fractals.c                                         :+:    :+:            */
+/*   preset_fractals.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 13:13:46 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 22:10:55 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:50:55 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,17 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-struct s_func
+bool	invoke_fractal_initialiser(t_vars *var)
 {
-    const char *name;
-	void (*function)(t_vars *);
-};
-
-struct	s_func	functions[PRESET_FRACTAL_COUNT] =
-{
+	const struct s_func	functions[PRESET_FRACTAL_COUNT] = {
 	{"Mandelbrot", set_mandelbrot_vars},
 	{"Julia 1", set_julia_vars},
 	{"Julia 2", set_julia_vars},
 	{"Julia 3", set_julia_vars},
 	{"Burning Ship", set_mandelbrot_vars}
-};
-
-bool	invoke_fractal_initialiser(t_vars *var)
-{
-	int	i;
-	const char	*fractal_name;
+	};
+	int					i;
+	const char			*fractal_name;
 
 	i = 0;
 	fractal_name = var->fract.name;
