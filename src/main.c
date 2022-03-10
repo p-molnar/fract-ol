@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 10:37:44 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/08 18:18:27 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/09 20:50:17 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char *argv[])
 	valid_input = parse_cla(argc, argv, &var);
 	if (!valid_input)
 		return (display_input_error());
-	printf("valid\n");
 	init_generic_vars(&var);
 	init_fractal_vars(&var);
 	init_mlx(&var);

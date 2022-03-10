@@ -6,23 +6,23 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:32:27 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/08 18:24:47 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/09 20:49:03 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <mlx.h>
 #include "../includes/fractol.h"
-# define NULL (void *)0
 
 void	init_generic_vars(t_vars *var)
 {
-	var->win.title = (char *)var->fract.type;
+	// var->win.title = (char *)var->fract.type;
+	var->win.title = "win";
 	var->fract.max_iter = 50;
 	var->fract.real.min = -2.0;
 	var->fract.imag.min = -2.0;
 	var->fract.real.max = 2.0;
 	var->fract.imag.max = var->fract.imag.min + (var->fract.real.max - var->fract.real.min) * (WIN_H / WIN_W);
-	var->fract.type = NULL;
 	var->mouse.zoom = 1.0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/07 09:41:03 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/08 18:18:03 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/09 20:38:01 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,21 @@ bool	parse_polynomial(t_vars *var, const char *polynom)
 	char *sign_ptr;
 	int	sign;
 
-	sign_ptr = ft_strrchr(polynom, ' ') - 1;
-	if (*sign_ptr == '-')
+	sign_ptr = ft_strrchr(polynom, ' ');
+	if (!sign_ptr)
+		return (false);
+	if (*(sign_ptr - 1) == '-')
 		sign = -1;
-	else if (*sign_ptr == '+')
+	else if (*(sign_ptr - 1) == '+')
 		sign = 1;
 	else
 		return (false);
 	if (polynom[ft_strlen(polynom) - 1] != 'i')
 		return (false);
 	var->fract.input_a = ft_atof(polynom);
-	var->fract.input_b = sign * ft_atof(sign_ptr + 1);
+	var->fract.input_b = sign * ft_atof(sign_ptr);
+	printf("%f\n", var->fract.input_a);
+	printf("%f\n", var->fract.input_b);
 	return (true);
 }
 
@@ -54,6 +58,7 @@ bool parse_preset_fractal(t_vars *var, const char *arg)
 		if (ft_strncmp(fractal_types[i], arg, 
 			ft_strlen(fractal_types[i])) == 0)
 		{
+			printf("parse_arg_name\n");
 			var->fract.type = arg;
 			return (true);
 		}
@@ -69,10 +74,10 @@ bool parse_cla(int argc, char *argv[], t_vars *var)
 	arg = argv[1];
 	if (!is_valid_arg_count(argc))
 		return (false);
-	if(!parse_preset_fractal(var, arg))
+	if (!parse_preset_fractal(var, arg))
 	{
 		if (!parse_polynomial(var, arg))
-			return(false);
+			return (false);
 	}
 	return (true);
 }

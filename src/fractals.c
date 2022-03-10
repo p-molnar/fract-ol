@@ -6,13 +6,14 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 13:13:46 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/08 18:23:34 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/09 20:41:13 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 #include "../includes/libft/libft.h"
 #include <stdio.h>
+#include <stdbool.h>
 
 struct s_func
 {
@@ -22,10 +23,10 @@ struct s_func
 
 struct	s_func	functions[DEFAULT_FRACT_COUNT] =
 {
-	{ "Mandelbrot", set_mandelbrot_vars},
-	{ "Julia 1", set_julia_vars},
-	{ "Julia 2", set_julia_vars},
-	{ "Julia 3", set_julia_vars}
+	{"Mandelbrot", set_mandelbrot_vars},
+	{"Julia 1", set_julia_vars},
+	{"Julia 2", set_julia_vars},
+	{"Julia 3", set_julia_vars}
 };
 
 bool	invoke_fractal_initialiser(t_vars *var)
@@ -35,7 +36,7 @@ bool	invoke_fractal_initialiser(t_vars *var)
 
 	i = 0;
 	fractal_name = var->fract.type;
-	printf("f: %s", fractal_name);
+	// printf("f: %s", fractal_name);
 	
 	while (i < DEFAULT_FRACT_COUNT)
 	{
