@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/03 10:34:04 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 17:03:36 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 21:32:26 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ void	close_window(int keycode, t_vars *var)
 void	key_navigation(int keycode, t_vars *var)
 {
 	if (keycode == ARROW_KEY_LEFT)
-		var->fract.x_offset -= 7;
-	else if (keycode == ARROW_KEY_RIGHT)
 		var->fract.x_offset += 7;
+	else if (keycode == ARROW_KEY_RIGHT)
+		var->fract.x_offset -= 7;
 	else if (keycode == ARROW_KEY_DOWN)
-		var->fract.y_offset += 7;
-	else if (keycode == ARROW_KEY_UP)
 		var->fract.y_offset -= 7;
+	else if (keycode == ARROW_KEY_UP)
+		var->fract.y_offset += 7;
 	plot_fractal(var);
 }
