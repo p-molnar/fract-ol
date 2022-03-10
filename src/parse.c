@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/07 09:41:03 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 15:21:46 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:11:59 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,16 @@ bool	parse_polynomial(t_vars *var, const char *polynom)
 bool	parse_preset_fractal(t_vars *var, const char *arg)
 {
 	int			i;
-	const char	*fractal_types[DEFAULT_FRACT_COUNT] = {
+	const char	*fractal_types[PRESET_FRACTAL_COUNT] = {
 		"Mandelbrot",
 		"Julia 1",
 		"Julia 2",
 		"Julia 3",
+		"Burning Ship"
 	};
 
 	i = 0;
-	while (i < DEFAULT_FRACT_COUNT)
+	while (i < PRESET_FRACTAL_COUNT)
 	{
 		if (ft_strncmp(fractal_types[i], arg,
 				ft_strlen(fractal_types[i])) == 0)

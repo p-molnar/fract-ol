@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:24:39 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 10:30:04 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:08:44 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # define WIN_W 800
 # define WIN_H 800
-# define DEFAULT_FRACT_COUNT 4
+# define PRESET_FRACTAL_COUNT 5
 
 void	mlx_put_pixel(t_data *data, int x, int y, int color);
 void	init_generic_vars(t_vars *var);

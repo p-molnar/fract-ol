@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/10 11:51:07 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 15:40:07 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:11:13 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,16 @@ bool	is_valid_polynomial_formula(const char *formula)
 bool	is_valid_preset_arg(const char *arg)
 {
 	size_t		i;
-	const char	*fractal_types[DEFAULT_FRACT_COUNT] = {
+	const char	*fractal_types[PRESET_FRACTAL_COUNT] = {
 		"Mandelbrot",
 		"Julia 1",
 		"Julia 2",
 		"Julia 3",
+		"Burning Ship"
 	};
 
 	i = 0;
-	while (i < DEFAULT_FRACT_COUNT)
+	while (i < PRESET_FRACTAL_COUNT)
 	{
 		if (ft_strncmp(fractal_types[i], arg, ft_strlen(fractal_types[i])) == 0)
 			return (true);

@@ -6,14 +6,14 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 18:00:13 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 17:12:44 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:14:18 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+#include "../includes/libft/libft.h"
 #include "../includes/colors.h"
 
-#include <stdio.h>
 #include <math.h>
 
 
@@ -35,7 +35,13 @@ int	get_point_magnitude(t_vars *var)
 	while (a * a + b * b <= 4 && iter < var->fract.max_iter)
 	{
 		a_tmp = a * a - b * b + *var->fract.real.c;
-		b = 2 * a * b + *var->fract.imag.c;
+		if (ft_strncmp(var->fract.name, "Burning Ship", \
+			ft_strlen(var->fract.name)) == 0)
+		{
+			b = fabs(2 * a * b) + *var->fract.imag.c;
+		}
+		else
+			b = 2 * a * b + *var->fract.imag.c;
 		a = a_tmp;
 		iter++;
 	}

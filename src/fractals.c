@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 13:13:46 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 15:02:16 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 22:10:55 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ struct s_func
 	void (*function)(t_vars *);
 };
 
-struct	s_func	functions[DEFAULT_FRACT_COUNT] =
+struct	s_func	functions[PRESET_FRACTAL_COUNT] =
 {
 	{"Mandelbrot", set_mandelbrot_vars},
 	{"Julia 1", set_julia_vars},
 	{"Julia 2", set_julia_vars},
-	{"Julia 3", set_julia_vars}
+	{"Julia 3", set_julia_vars},
+	{"Burning Ship", set_mandelbrot_vars}
 };
 
 bool	invoke_fractal_initialiser(t_vars *var)
@@ -36,9 +37,7 @@ bool	invoke_fractal_initialiser(t_vars *var)
 
 	i = 0;
 	fractal_name = var->fract.name;
-	printf("f: %s", fractal_name);
-
-	while (i < DEFAULT_FRACT_COUNT)
+	while (i < PRESET_FRACTAL_COUNT)
 	{
 		if (ft_strncmp(fractal_name, functions[i].name, \
 			ft_strlen(fractal_name)) == 0)
