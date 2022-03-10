@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/03 10:34:04 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 16:36:06 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 17:03:36 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void	print_info(int keycode, t_vars *var)
+void	shift_colors(int keycode, t_vars *var)
 {
-	if (keycode != KEY_I)
-		return ;
-	printf("--- info ---\n");
-	printf("zoom: %f\n", var->mouse.zoom);
-	printf("mouse_real: %f\n", var->mouse.real);
-	printf("mouse_imag: %f\n", var->mouse.imag);
-	printf("real.min: %f\n", var->fract.real.min);
-	printf("real.max: %f\n", var->fract.real.max);
-	printf("imag.min: %f\n", var->fract.imag.min);
-	printf("imag.max: %f\n", var->fract.imag.max);
-	printf("--- **** ---\n");
+	if (keycode == KEY_C)
+		var->fract.color_palette = (var->fract.color_palette + 1) % 5;
 }
 
 void	change_itermax(int keycode, t_vars *var)

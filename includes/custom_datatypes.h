@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 11:03:22 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 16:05:13 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 16:58:43 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_fractal
 	const char	*type;
 	double		input_a;
 	double		input_b;
+	int			color_palette;
 }				t_fractal;
 
 typedef struct s_mouse

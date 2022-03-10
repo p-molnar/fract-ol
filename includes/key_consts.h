@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 21:01:21 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 16:13:29 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 17:03:16 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ enum {
 
 # define KEY_ESC 53
 # define KEY_Q 12
-# define KEY_I 34
+# define KEY_C 8
 # define KEY_G 5
 
 # define ARROW_KEY_LEFT 123

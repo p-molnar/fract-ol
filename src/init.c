@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/10 14:08:44 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 16:11:02 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 16:58:30 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_generic_vars(t_vars *var)
 	var->mouse.zoom = 1.0;
 	var->fract.x_offset = 0;
 	var->fract.y_offset = 0;
+	var->fract.color_palette = 0;
 }
 
 void	init_fractal_vars(t_vars *var)

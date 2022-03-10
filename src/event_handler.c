@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 21:22:02 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 16:14:40 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 17:01:50 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	window_event_handler(int keycode, t_vars *var)
 
 int	keypress_event_handler(int keycode, t_vars *var)
 {
-	print_info(keycode, var);
+	shift_colors(keycode, var);
 	change_itermax(keycode, var);
 	close_window(keycode, var);
 	key_navigation(keycode, var);
