@@ -6,19 +6,20 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 18:00:13 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/08 12:04:10 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 14:09:13 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+#include "../includes/colors.h"
 
 #include <stdio.h>
 #include <math.h>
 
 
-double interpolate(double start, double end, double interpolation)
-{
-    return start + ((end - start) * interpolation);
+double	interpolate(double start, double end, double interpolation)
+{	
+	return start + ((end - start) * interpolation);
 }
 
 int	get_point_magnitude(t_vars *var)

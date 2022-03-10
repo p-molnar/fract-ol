@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   input.c                                            :+:    :+:            */
+/*   parse.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/07 09:41:03 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/09 20:38:01 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/10 15:21:46 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 #include "../includes/libft/libft.h"
+#include "../includes/errors.h"
+#include "../includes/cla_parser.h"
 #include <stdio.h>
 
 bool	parse_polynomial(t_vars *var, const char *polynom)
 {
-	char *sign_ptr;
-	int	sign;
+	char	*sign_ptr;
+	int		sign;
 
 	sign_ptr = ft_strrchr(polynom, ' ');
 	if (!sign_ptr)
@@ -32,19 +34,14 @@ bool	parse_polynomial(t_vars *var, const char *polynom)
 		return (false);
 	var->fract.input_a = ft_atof(polynom);
 	var->fract.input_b = sign * ft_atof(sign_ptr);
-	printf("%f\n", var->fract.input_a);
-	printf("%f\n", var->fract.input_b);
+	var->fract.name = polynom;
+	var->fract.type = "custom";
 	return (true);
 }
 
-bool	is_valid_arg_count(int argc)
+bool	parse_preset_fractal(t_vars *var, const char *arg)
 {
-	return (argc == 2);
-}
-
-bool parse_preset_fractal(t_vars *var, const char *arg)
-{
-	int	i;
+	int			i;
 	const char	*fractal_types[DEFAULT_FRACT_COUNT] = {
 		"Mandelbrot",
 		"Julia 1",
@@ -53,13 +50,13 @@ bool parse_preset_fractal(t_vars *var, const char *arg)
 	};
 
 	i = 0;
-	while (i < DEFAULT_FRACT_COUNT )
+	while (i < DEFAULT_FRACT_COUNT)
 	{
-		if (ft_strncmp(fractal_types[i], arg, 
-			ft_strlen(fractal_types[i])) == 0)
+		if (ft_strncmp(fractal_types[i], arg,
+				ft_strlen(fractal_types[i])) == 0)
 		{
-			printf("parse_arg_name\n");
-			var->fract.type = arg;
+			var->fract.name = arg;
+			var->fract.type = "preset";
 			return (true);
 		}
 		i++;
@@ -67,17 +64,11 @@ bool parse_preset_fractal(t_vars *var, const char *arg)
 	return (false);
 }
 
-bool parse_cla(int argc, char *argv[], t_vars *var)
+void	parse_cla(char *argv[], t_vars *var)
 {
-	const char	*arg;
+	char	*arg;
 
 	arg = argv[1];
-	if (!is_valid_arg_count(argc))
-		return (false);
 	if (!parse_preset_fractal(var, arg))
-	{
-		if (!parse_polynomial(var, arg))
-			return (false);
-	}
-	return (true);
+		parse_polynomial(var, arg);
 }
