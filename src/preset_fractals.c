@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 13:13:46 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 22:50:55 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/11 10:16:20 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ bool	invoke_fractal_initialiser(t_vars *var)
 	fractal_name = var->fract.name;
 	while (i < PRESET_FRACTAL_COUNT)
 	{
-		if (ft_strncmp(fractal_name, functions[i].name, \
-			ft_strlen(fractal_name)) == 0)
+		if (ft_strncmp(functions[i].name, fractal_name, \
+			ft_strlen(functions[i].name)) == 0)
 		{
 			(*functions[i].function)(var);
 			return (true);

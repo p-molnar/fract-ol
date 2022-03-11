@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   validator.c                                        :+:    :+:            */
+/*   input_validator.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/10 11:51:07 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 22:11:13 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/11 10:11:23 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	is_valid_float(const char *formula)
 	int	i;
 
 	i = 0;
+	if (formula[i] == '-' || formula[i] == '+')
+		i++;
 	while (ft_isdigit(formula[i]))
 		i++;
 	if (formula[i] == '.')
@@ -50,8 +52,7 @@ bool	is_valid_polynomial_formula(const char *formula)
 	i += is_valid_float(&formula[i]);
 	if (formula[i] == 'i')
 		i++;
-	printf("strlen: %zu, i: %zu\n", ft_strlen(formula), i);
-	if (ft_strlen(formula) == i)
+	if (ft_strlen(formula) == i && formula[i - 1] == 'i')
 		return (true);
 	return (false);
 }
