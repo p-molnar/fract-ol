@@ -6,7 +6,7 @@
 /*   By: pmolnar <pmolnar@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 15:13:52 by pmolnar       #+#    #+#                 */
-/*   Updated: 2022/03/10 22:32:59 by pmolnar       ########   odam.nl         */
+/*   Updated: 2022/03/11 13:58:37 by pmolnar       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	display_input_error(void)
 	printf("[3]	Julia 2\n");
 	printf("[4]	Julia 3\n");
 	printf("[B]	Burning Ship\n\n");
-	printf("usage: ./fractal <comoplex-polynomial-expression>\n");
+	printf("usage: ./fractal <complex-polynomial-expression>\n");
 	printf("Expected polynomial formulation:\n");
 	printf("a + bi, whereby `a` representing the real, ");
 	printf("and `b` the imaginary component\n");
